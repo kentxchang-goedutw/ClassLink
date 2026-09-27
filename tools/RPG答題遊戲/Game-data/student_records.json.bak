@@ -1,0 +1,322 @@
+[
+  {
+    "id": "rec_1789090630204_281",
+    "studentName": "000",
+    "examId": "exam_default_migration",
+    "examTitle": "紫斑蝶全島大遷徙：五大關卡綜合冒險測驗",
+    "score": 300,
+    "level": 2,
+    "clearedStages": 1,
+    "totalAnswered": 3,
+    "correctCount": 3,
+    "wrongCount": 0,
+    "accuracy": 100,
+    "completedAt": 1789090630204,
+    "details": [
+      {
+        "questionId": 103,
+        "question": "台灣口訣「小紫點一邊、圓翅兩邊點、斯氏有三點、端紫亂亂點」，是用來辨識什麼？",
+        "options": [
+          "紫斑蝶四種近緣種辨識特徵",
+          "不同年齡斑蝶的翅膀磨損",
+          "斑蝶產卵的數量多寡",
+          "蝴蝶幼蟲的斑紋分布"
+        ],
+        "studentAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "correctAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "isCorrect": true,
+        "explanation": "這是辨識台灣常見四種紫斑蝶（小紫斑蝶、圓翅紫斑蝶、斯氏紫斑蝶、端紫斑蝶）前翅腹面斑紋的經典口訣。",
+        "chapter": 1,
+        "category": "斑蝶特徵"
+      },
+      {
+        "questionId": 101,
+        "question": "台灣哪一個地區以擁有世界罕見的數十萬隻紫斑蝶越冬聚集景象而聞名？",
+        "options": [
+          "新北陽明山",
+          "花蓮太魯閣",
+          "南投清境",
+          "高雄茂林"
+        ],
+        "studentAnswer": "高雄茂林",
+        "correctAnswer": "高雄茂林",
+        "isCorrect": true,
+        "explanation": "高雄市茂林區的「紫蝶幽谷」是世界級的越冬蝶谷，每年冬天吸引數十萬隻紫斑蝶南下避寒。",
+        "chapter": 1,
+        "category": "越冬生態"
+      },
+      {
+        "questionId": 105,
+        "question": "紫斑蝶在動物界生物分類中，屬於哪一個目？",
+        "options": [
+          "鞘翅目",
+          "雙翅目",
+          "鱗翅目",
+          "膜翅目"
+        ],
+        "studentAnswer": "鱗翅目",
+        "correctAnswer": "鱗翅目",
+        "isCorrect": true,
+        "explanation": "蝴蝶與蛾類全身披覆微細鱗片，在昆蟲綱中屬於「鱗翅目 (Lepidoptera)」。",
+        "chapter": 1,
+        "category": "生物分類"
+      }
+    ]
+  },
+  {
+    "id": "rec_1789091467397_529",
+    "studentName": "999",
+    "examId": "exam_default_migration",
+    "examTitle": "紫斑蝶全島大遷徙：五大關卡綜合冒險測驗",
+    "score": 300,
+    "level": 2,
+    "clearedStages": 1,
+    "totalAnswered": 3,
+    "correctCount": 3,
+    "wrongCount": 0,
+    "accuracy": 100,
+    "completedAt": 1789091467397,
+    "details": [
+      {
+        "questionId": 101,
+        "question": "台灣哪一個地區以擁有世界罕見的數十萬隻紫斑蝶越冬聚集景象而聞名？",
+        "options": [
+          "花蓮太魯閣",
+          "高雄茂林",
+          "新北陽明山",
+          "南投清境"
+        ],
+        "studentAnswer": "高雄茂林",
+        "correctAnswer": "高雄茂林",
+        "isCorrect": true,
+        "explanation": "高雄市茂林區的「紫蝶幽谷」是世界級的越冬蝶谷，每年冬天吸引數十萬隻紫斑蝶南下避寒。",
+        "chapter": 1,
+        "category": "越冬生態"
+      },
+      {
+        "questionId": 103,
+        "question": "台灣口訣「小紫點一邊、圓翅兩邊點、斯氏有三點、端紫亂亂點」，是用來辨識什麼？",
+        "options": [
+          "斑蝶產卵的數量多寡",
+          "蝴蝶幼蟲的斑紋分布",
+          "紫斑蝶四種近緣種辨識特徵",
+          "不同年齡斑蝶的翅膀磨損"
+        ],
+        "studentAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "correctAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "isCorrect": true,
+        "explanation": "這是辨識台灣常見四種紫斑蝶（小紫斑蝶、圓翅紫斑蝶、斯氏紫斑蝶、端紫斑蝶）前翅腹面斑紋的經典口訣。",
+        "chapter": 1,
+        "category": "斑蝶特徵"
+      },
+      {
+        "questionId": 104,
+        "question": "紫斑蝶在冬季時常數千隻緊密倒掛棲息在樹枝藤蔓上，這種群聚行為的主要目的是？",
+        "options": [
+          "在低溫中加速翅膀硬化",
+          "共同吸收清晨露水",
+          "吸引捕食者分散注意",
+          "防風保溫與減少水份散失"
+        ],
+        "studentAnswer": "防風保溫與減少水份散失",
+        "correctAnswer": "防風保溫與減少水份散失",
+        "isCorrect": true,
+        "explanation": "紫斑蝶在冷涼谷地抱團停棲，能形成微氣候保溫防風，減少個體在寒冬中消耗能量與水份。",
+        "chapter": 1,
+        "category": "生態行為"
+      }
+    ]
+  },
+  {
+    "id": "rec_1789093023088_43",
+    "studentName": "000",
+    "examId": "exam_default_migration",
+    "examTitle": "紫斑蝶全島大遷徙：五大關卡綜合冒險測驗",
+    "score": 300,
+    "level": 2,
+    "clearedStages": 1,
+    "totalAnswered": 2,
+    "correctCount": 2,
+    "wrongCount": 0,
+    "accuracy": 100,
+    "completedAt": 1789093023088,
+    "details": [
+      {
+        "questionId": 102,
+        "question": "紫斑蝶翅膀在不同角度陽光照射下會折射出耀眼的幻彩紫光，這主要是什麼成因？",
+        "options": [
+          "吸收花蜜中的天然染劑",
+          "物理微觀結構色光學干涉",
+          "翅膀表面特殊的紫色素分泌",
+          "翅膀反光鏡的化學塗層"
+        ],
+        "studentAnswer": "物理微觀結構色光學干涉",
+        "correctAnswer": "物理微觀結構色光學干涉",
+        "isCorrect": true,
+        "explanation": "紫斑蝶翅膀的幻光屬於「結構色」，是由鱗片微細立體結構對光線產生的繞射與干涉現象，而非化學色素。",
+        "chapter": 1,
+        "category": "斑蝶外觀"
+      },
+      {
+        "questionId": 103,
+        "question": "台灣口訣「小紫點一邊、圓翅兩邊點、斯氏有三點、端紫亂亂點」，是用來辨識什麼？",
+        "options": [
+          "紫斑蝶四種近緣種辨識特徵",
+          "斑蝶產卵的數量多寡",
+          "不同年齡斑蝶的翅膀磨損",
+          "蝴蝶幼蟲的斑紋分布"
+        ],
+        "studentAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "correctAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "isCorrect": true,
+        "explanation": "這是辨識台灣常見四種紫斑蝶（小紫斑蝶、圓翅紫斑蝶、斯氏紫斑蝶、端紫斑蝶）前翅腹面斑紋的經典口訣。",
+        "chapter": 1,
+        "category": "斑蝶特徵"
+      }
+    ]
+  },
+  {
+    "id": "rec_1789093968143_765",
+    "studentName": "000",
+    "examId": "exam_default_migration",
+    "examTitle": "紫斑蝶全島大遷徙：五大關卡綜合冒險測驗",
+    "score": 300,
+    "level": 2,
+    "clearedStages": 1,
+    "totalAnswered": 4,
+    "correctCount": 3,
+    "wrongCount": 1,
+    "accuracy": 75,
+    "completedAt": 1789093968143,
+    "details": [
+      {
+        "questionId": 105,
+        "question": "紫斑蝶在動物界生物分類中，屬於哪一個目？",
+        "options": [
+          "鱗翅目",
+          "膜翅目",
+          "鞘翅目",
+          "雙翅目"
+        ],
+        "studentAnswer": "鱗翅目",
+        "correctAnswer": "鱗翅目",
+        "isCorrect": true,
+        "explanation": "蝴蝶與蛾類全身披覆微細鱗片，在昆蟲綱中屬於「鱗翅目 (Lepidoptera)」。",
+        "chapter": 1,
+        "category": "生物分類"
+      },
+      {
+        "questionId": 103,
+        "question": "台灣口訣「小紫點一邊、圓翅兩邊點、斯氏有三點、端紫亂亂點」，是用來辨識什麼？",
+        "options": [
+          "蝴蝶幼蟲的斑紋分布",
+          "不同年齡斑蝶的翅膀磨損",
+          "斑蝶產卵的數量多寡",
+          "紫斑蝶四種近緣種辨識特徵"
+        ],
+        "studentAnswer": "蝴蝶幼蟲的斑紋分布",
+        "correctAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "isCorrect": false,
+        "explanation": "這是辨識台灣常見四種紫斑蝶（小紫斑蝶、圓翅紫斑蝶、斯氏紫斑蝶、端紫斑蝶）前翅腹面斑紋的經典口訣。",
+        "chapter": 1,
+        "category": "斑蝶特徵"
+      },
+      {
+        "questionId": 102,
+        "question": "紫斑蝶翅膀在不同角度陽光照射下會折射出耀眼的幻彩紫光，這主要是什麼成因？",
+        "options": [
+          "物理微觀結構色光學干涉",
+          "翅膀反光鏡的化學塗層",
+          "翅膀表面特殊的紫色素分泌",
+          "吸收花蜜中的天然染劑"
+        ],
+        "studentAnswer": "物理微觀結構色光學干涉",
+        "correctAnswer": "物理微觀結構色光學干涉",
+        "isCorrect": true,
+        "explanation": "紫斑蝶翅膀的幻光屬於「結構色」，是由鱗片微細立體結構對光線產生的繞射與干涉現象，而非化學色素。",
+        "chapter": 1,
+        "category": "斑蝶外觀"
+      },
+      {
+        "questionId": 104,
+        "question": "紫斑蝶在冬季時常數千隻緊密倒掛棲息在樹枝藤蔓上，這種群聚行為的主要目的是？",
+        "options": [
+          "共同吸收清晨露水",
+          "在低溫中加速翅膀硬化",
+          "吸引捕食者分散注意",
+          "防風保溫與減少水份散失"
+        ],
+        "studentAnswer": "防風保溫與減少水份散失",
+        "correctAnswer": "防風保溫與減少水份散失",
+        "isCorrect": true,
+        "explanation": "紫斑蝶在冷涼谷地抱團停棲，能形成微氣候保溫防風，減少個體在寒冬中消耗能量與水份。",
+        "chapter": 1,
+        "category": "生態行為"
+      }
+    ]
+  },
+  {
+    "id": "rec_1789102502152_972",
+    "studentName": "6565",
+    "examId": "exam_default_migration",
+    "examTitle": "紫斑蝶全島大遷徙：五大關卡綜合冒險測驗",
+    "score": 400,
+    "level": 2,
+    "clearedStages": 1,
+    "totalAnswered": 3,
+    "correctCount": 3,
+    "wrongCount": 0,
+    "accuracy": 100,
+    "completedAt": 1789102502152,
+    "details": [
+      {
+        "questionId": 101,
+        "question": "台灣哪一個地區以擁有世界罕見的數十萬隻紫斑蝶越冬聚集景象而聞名？",
+        "options": [
+          "高雄茂林",
+          "新北陽明山",
+          "南投清境",
+          "花蓮太魯閣"
+        ],
+        "studentAnswer": "高雄茂林",
+        "correctAnswer": "高雄茂林",
+        "isCorrect": true,
+        "explanation": "高雄市茂林區的「紫蝶幽谷」是世界級的越冬蝶谷，每年冬天吸引數十萬隻紫斑蝶南下避寒。",
+        "chapter": 1,
+        "category": "越冬生態"
+      },
+      {
+        "questionId": 103,
+        "question": "台灣口訣「小紫點一邊、圓翅兩邊點、斯氏有三點、端紫亂亂點」，是用來辨識什麼？",
+        "options": [
+          "斑蝶產卵的數量多寡",
+          "不同年齡斑蝶的翅膀磨損",
+          "蝴蝶幼蟲的斑紋分布",
+          "紫斑蝶四種近緣種辨識特徵"
+        ],
+        "studentAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "correctAnswer": "紫斑蝶四種近緣種辨識特徵",
+        "isCorrect": true,
+        "explanation": "這是辨識台灣常見四種紫斑蝶（小紫斑蝶、圓翅紫斑蝶、斯氏紫斑蝶、端紫斑蝶）前翅腹面斑紋的經典口訣。",
+        "chapter": 1,
+        "category": "斑蝶特徵"
+      },
+      {
+        "questionId": 104,
+        "question": "紫斑蝶在冬季時常數千隻緊密倒掛棲息在樹枝藤蔓上，這種群聚行為的主要目的是？",
+        "options": [
+          "防風保溫與減少水份散失",
+          "在低溫中加速翅膀硬化",
+          "共同吸收清晨露水",
+          "吸引捕食者分散注意"
+        ],
+        "studentAnswer": "防風保溫與減少水份散失",
+        "correctAnswer": "防風保溫與減少水份散失",
+        "isCorrect": true,
+        "explanation": "紫斑蝶在冷涼谷地抱團停棲，能形成微氣候保溫防風，減少個體在寒冬中消耗能量與水份。",
+        "chapter": 1,
+        "category": "生態行為"
+      }
+    ]
+  }
+]

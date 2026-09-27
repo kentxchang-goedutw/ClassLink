@@ -1,0 +1,44 @@
+[
+  {
+    "id": "exam_1789111706802",
+    "title": "社會2-1+紫蝶錯題",
+    "category": "綜合",
+    "description": "包含 2 組題庫，共 43 題",
+    "bankIds": [
+      "bank_1789111446267",
+      "bank_1789111630735"
+    ],
+    "questionCount": 43,
+    "createdAt": 1789111706802,
+    "active": true
+  },
+  {
+    "id": "exam_default_migration",
+    "title": "紫斑蝶全島大遷徙：五大關卡綜合冒險測驗",
+    "category": "生態綜合",
+    "description": "涵蓋茂林越冬、惡地食草、濁水溪河谷、國道廊道與繁衍聖地的完整大遷徙試煉！",
+    "bankIds": [
+      "bank_stage1_maolin",
+      "bank_stage2_badlands",
+      "bank_stage3_river",
+      "bank_stage4_highway",
+      "bank_stage5_sacred"
+    ],
+    "questionCount": 25,
+    "createdAt": 1726000000000,
+    "active": true
+  },
+  {
+    "id": "exam_beginner_nature",
+    "title": "初階冒險：斑蝶基礎與食草生態測驗",
+    "category": "基礎生態",
+    "description": "精選第 1、2 章茂林越冬與食草植物知識，適合初次啟程的斑蝶小勇士！",
+    "bankIds": [
+      "bank_stage1_maolin",
+      "bank_stage2_badlands"
+    ],
+    "questionCount": 10,
+    "createdAt": 1726000100000,
+    "active": false
+  }
+]

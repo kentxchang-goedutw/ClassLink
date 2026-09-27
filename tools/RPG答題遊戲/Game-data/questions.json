@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1789054589318,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "台灣最高的山是哪一座?",
+    "options": [
+      "玉山",
+      "雪山",
+      "阿里山",
+      "陽明山"
+    ],
+    "answerIndex": 0,
+    "explanation": "正確答案為：玉山"
+  },
+  {
+    "id": 1789054587851,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "光速大約是每秒多少公里?",
+    "options": [
+      "10萬",
+      "30萬",
+      "50萬",
+      "100萬"
+    ],
+    "answerIndex": 1,
+    "explanation": "正確答案為：30萬"
+  },
+  {
+    "id": 1789054588580,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "蘋果的英文是什麼?",
+    "options": [
+      "Apple",
+      "Banana",
+      "Cat",
+      "Dog"
+    ],
+    "answerIndex": 0,
+    "explanation": "正確答案為：Apple"
+  },
+  {
+    "id": 1789054595281,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "植物光合作用吸收什麼氣體?",
+    "options": [
+      "氧氣",
+      "二氧化碳",
+      "氮氣",
+      "氫氣"
+    ],
+    "answerIndex": 1,
+    "explanation": "正確答案為：二氧化碳"
+  },
+  {
+    "id": 1789054593443,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "人體最大的解毒器官是哪一個?",
+    "options": [
+      "胃",
+      "心臟",
+      "肝臟",
+      "腎臟"
+    ],
+    "answerIndex": 2,
+    "explanation": "正確答案為：肝臟"
+  },
+  {
+    "id": 1789054589974,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "傳說中亞瑟王持有的傳奇寶劍叫什麼?",
+    "options": [
+      "村正",
+      "草薙劍",
+      "青釭劍",
+      "王者之劍"
+    ],
+    "answerIndex": 3,
+    "explanation": "正確答案為：王者之劍"
+  },
+  {
+    "id": 1789054593291,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "愛因斯坦提出質能等價公式為何?",
+    "options": [
+      "E=mc²",
+      "F=ma",
+      "PV=nRT",
+      "V=IR"
+    ],
+    "answerIndex": 0,
+    "explanation": "正確答案為：E=mc²"
+  },
+  {
+    "id": 1789054593939,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "古希臘誰說出了「我唯一知道的就是我一無所知」?",
+    "options": [
+      "柏拉圖",
+      "亞里斯多德",
+      "蘇格拉底",
+      "畢達哥拉斯"
+    ],
+    "answerIndex": 2,
+    "explanation": "正確答案為：蘇格拉底"
+  },
+  {
+    "id": 1789054592553,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "地球公轉一周大約需要多少時間?",
+    "options": [
+      "24小時",
+      "30天",
+      "100天",
+      "365天"
+    ],
+    "answerIndex": 3,
+    "explanation": "正確答案為：365天"
+  },
+  {
+    "id": 1789054591584,
+    "chapter": 1,
+    "category": "一般常識",
+    "question": "阿卡西法典的核心奧秘象徵著什麼?",
+    "options": [
+      "虛無",
+      "宇宙一切真理與知識",
+      "終焉詛咒",
+      "無盡黃金"
+    ],
+    "answerIndex": 1,
+    "explanation": "正確答案為：宇宙一切真理與知識"
+  }
+]

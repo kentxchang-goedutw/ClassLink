@@ -1,0 +1,607 @@
+/**
+ * 《智者覺醒：真理之戰》- 戰鬥與介面動畫樣式
+ */
+
+/* 怪物立繪懸浮浮動呼吸效果 */
+@keyframes floatMonster {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.anim-float {
+  animation: floatMonster 3.2s ease-in-out infinite;
+}
+
+/* 受到攻擊時的紅色閃爍與劇烈震動 */
+@keyframes hitShake {
+  0% { transform: translate(0, 0) scale(1); filter: brightness(1); }
+  15% { transform: translate(-10px, -5px) scale(0.96); filter: brightness(2.5) drop-shadow(0 0 15px #ff2a2a); }
+  30% { transform: translate(10px, 5px) scale(1.04); filter: brightness(3) drop-shadow(0 0 25px #ff0000); }
+  45% { transform: translate(-8px, 4px) scale(0.98); filter: brightness(2); }
+  60% { transform: translate(8px, -4px) scale(1.02); filter: brightness(1.5); }
+  75% { transform: translate(-4px, 2px) scale(0.99); filter: brightness(1.2); }
+  100% { transform: translate(0, 0) scale(1); filter: brightness(1); }
+}
+
+.anim-hit {
+  animation: hitShake 0.55s ease-out;
+}
+
+/* 玩家受擊震動 */
+@keyframes playerDamageShake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-12px); border-color: #ff3333; }
+  40% { transform: translateX(12px); border-color: #ff0000; }
+  60% { transform: translateX(-8px); }
+  80% { transform: translateX(8px); }
+  100% { transform: translateX(0); }
+}
+
+.anim-shake {
+  animation: playerDamageShake 0.5s ease-in-out;
+}
+
+/* 答對或爆擊時的光芒爆發 */
+@keyframes flashGlow {
+  0% { box-shadow: 0 0 5px #ffd700; }
+  50% { box-shadow: 0 0 35px #ffe066, inset 0 0 15px #ffd700; }
+  100% { box-shadow: 0 0 5px #ffd700; }
+}
+
+.anim-glow {
+  animation: flashGlow 0.8s ease-out;
+}
+
+/* 按鈕微懸浮與點擊回彈 */
+.jrpg-btn {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jrpg-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+.jrpg-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* 魔法陣旋轉特效（用於結算或神殿背景裝飾） */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.magic-circle-spin {
+  animation: spinSlow 25s linear infinite;
+}
+
+/* ===================================================
+   戰鬥畫面震屏與招式公告橫幅
+=================================================== */
+@keyframes screenImpactShake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-6px, 4px); }
+  40% { transform: translate(6px, -5px); }
+  60% { transform: translate(-4px, 3px); }
+  80% { transform: translate(4px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+.anim-screen-shake {
+  animation: screenImpactShake 0.4s ease-out;
+}
+
+/* 招式公告大橫幅進場與閃爍 */
+@keyframes bannerSlideGlow {
+  0% {
+    transform: translate(-50%, -40px) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, 0) scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 0 25px #ffd700);
+  }
+  75% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -15px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+.anim-banner-pop {
+  animation: bannerSlideGlow 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===================================================
+   主角戰鬥待機、突進衝刺攻擊與歸位動畫
+=================================================== */
+/* 主角待機呼吸浮動 */
+@keyframes playerBattleFloat {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.anim-player-idle {
+  animation: playerBattleFloat 2.6s ease-in-out infinite;
+}
+
+/* 主角答對時疾速衝刺突進向魔王面前（450ms 充分展示突進過程） */
+@keyframes playerDashAttack {
+  0% {
+    transform: translate(0, 0) scale(1);
+    filter: drop-shadow(0 0 10px rgba(116, 185, 255, 0.4));
+  }
+  25% {
+    /* 蓄力微後撤 */
+    transform: translate(-25px, 6px) scale(0.96);
+    filter: brightness(1.6) drop-shadow(0 0 25px #a29bfe);
+  }
+  70% {
+    /* 超高速向右突進至魔王前方，帶有幻紫金拖尾 */
+    transform: translate(var(--dash-dist, 420px), -12px) scale(1.18);
+    filter: brightness(2) drop-shadow(-15px 0 30px #9b59b6);
+  }
+  100% {
+    /* 定格在打擊位置 */
+    transform: translate(var(--dash-dist, 420px), -10px) scale(1.15);
+    filter: brightness(1.8) drop-shadow(0 0 25px #ffe066);
+  }
+}
+
+.anim-player-dash-attack {
+  animation: playerDashAttack 0.45s cubic-bezier(0.12, 0.88, 0.25, 1) forwards !important;
+  z-index: 35 !important;
+}
+
+/* 主角衝刺後撤歸位（380ms 平滑翻轉後撤） */
+@keyframes playerDashReturn {
+  0% {
+    transform: translate(var(--dash-dist, 420px), -10px) scale(1.15);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    filter: brightness(1);
+  }
+}
+
+.anim-player-dash-return {
+  animation: playerDashReturn 0.38s cubic-bezier(0.25, 0.8, 0.25, 1) forwards !important;
+}
+
+/* ===================================================
+   魔王受擊劇烈抖動與泛紅動畫 (Hurt Shake，持續 0.7s)
+=================================================== */
+@keyframes enemyHurtShake {
+  0% {
+    transform: translate(0, 0) scale(1);
+    filter: brightness(1);
+  }
+  12% {
+    transform: translate(25px, -14px) scale(0.9);
+    filter: brightness(3.8) drop-shadow(0 0 35px #ff0000) contrast(200%);
+  }
+  26% {
+    transform: translate(-26px, 16px) scale(1.14);
+    filter: brightness(4.2) drop-shadow(0 0 50px #ff2a2a) hue-rotate(320deg);
+  }
+  42% {
+    transform: translate(20px, -10px) scale(0.93);
+    filter: brightness(3) drop-shadow(0 0 30px #ff4757);
+  }
+  58% {
+    transform: translate(-16px, 8px) scale(1.06);
+    filter: brightness(2.2) drop-shadow(0 0 20px #e74c3c);
+  }
+  74% {
+    transform: translate(12px, -6px) scale(0.98);
+    filter: brightness(1.7);
+  }
+  88% {
+    transform: translate(-6px, 3px) scale(1.02);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    filter: brightness(1);
+  }
+}
+
+.anim-enemy-hurt-shake {
+  animation: enemyHurtShake 0.7s ease-out !important;
+}
+
+/* ===================================================
+   浮動傷害數字 (Floating Damage Numbers)
+=================================================== */
+@keyframes floatDamageText {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 15px) scale(0.6);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -20px) scale(1.35);
+  }
+  45% {
+    transform: translate(-50%, -40px) scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -65px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -85px) scale(0.85);
+  }
+}
+
+.damage-number-pop {
+  position: absolute;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0 0 8px #ff4757, 0 0 15px #ff0000, 2px 2px 2px #000;
+  pointer-events: none;
+  z-index: 50;
+  animation: floatDamageText 0.85s cubic-bezier(0.15, 0.85, 0.35, 1.2) forwards;
+}
+
+.damage-number-pop.crit {
+  font-size: 42px;
+  color: #ffe066;
+  text-shadow: 0 0 10px #ffd700, 0 0 25px #ff9f43, 0 0 35px #ff4757, 2px 2px 4px #000;
+}
+
+/* ===================================================
+   四種隨機攻擊視覺特效 (4 Unique Attack FX)
+=================================================== */
+
+/* --- 特效 1：【極光幻紫斬 (Phantom Violet Slash)】--- */
+@keyframes slashCrossA {
+  0% {
+    transform: translate(-100px, -100px) rotate(-45deg) scaleX(0.1);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(-45deg) scaleX(1.4);
+    box-shadow: 0 0 30px #a29bfe, 0 0 60px #9b59b6;
+  }
+  100% {
+    transform: translate(50px, 50px) rotate(-45deg) scaleX(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes slashCrossB {
+  0% {
+    transform: translate(100px, -100px) rotate(45deg) scaleX(0.1);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(45deg) scaleX(1.4);
+    box-shadow: 0 0 30px #e056fd, 0 0 60px #be2edd;
+  }
+  100% {
+    transform: translate(-50px, 50px) rotate(45deg) scaleX(1.8);
+    opacity: 0;
+  }
+}
+
+.fx-slash-container {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.fx-slash-blade-1 {
+  position: absolute;
+  width: 360px;
+  height: 14px;
+  background: linear-gradient(90deg, transparent, #fff 40%, #e056fd 60%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 25px #e056fd;
+  animation: slashCrossA 0.65s ease-out forwards;
+}
+
+.fx-slash-blade-2 {
+  position: absolute;
+  width: 360px;
+  height: 14px;
+  background: linear-gradient(90deg, transparent, #fff 40%, #74b9ff 60%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 25px #74b9ff;
+  animation: slashCrossB 0.68s ease-out forwards;
+}
+
+.fx-slash-sparks {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(224, 86, 253, 0.8) 40%, rgba(255, 215, 0, 0.6) 70%, transparent 85%);
+  animation: sparkBurst 0.65s ease-out forwards;
+}
+
+@keyframes sparkBurst {
+  0% { transform: scale(0.2); opacity: 1; filter: brightness(2); }
+  50% { transform: scale(1.6); opacity: 0.95; filter: brightness(1.6) drop-shadow(0 0 20px #e056fd); }
+  100% { transform: scale(2.4); opacity: 0; filter: brightness(1); }
+}
+
+/* --- 特效 2：【蝶羽旋風暴 (Butterfly Gale Vortex)】--- */
+@keyframes tornadoSpin {
+  0% {
+    transform: scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.15) rotate(220deg);
+  }
+  60% {
+    transform: scale(1.35) rotate(600deg);
+    filter: drop-shadow(0 0 35px #2ed573);
+  }
+  100% {
+    transform: scale(1.7) rotate(900deg);
+    opacity: 0;
+  }
+}
+
+.fx-tornado-container {
+  position: absolute;
+  width: 300px;
+  height: 320px;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.fx-tornado-body {
+  position: absolute;
+  width: 240px;
+  height: 300px;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(46, 213, 115, 0.9), rgba(255, 224, 102, 0.95), rgba(162, 155, 254, 0.9), rgba(46, 213, 115, 0.9));
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  filter: blur(5px) drop-shadow(0 0 30px #2ed573);
+  animation: tornadoSpin 0.75s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+.fx-butterfly-leaf {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #ffe066 10%, #a29bfe 80%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: leafOrbit 0.72s ease-out forwards;
+}
+
+@keyframes leafOrbit {
+  0% { transform: rotate(0deg) translateX(25px) scale(0.6); opacity: 1; }
+  100% { transform: rotate(720deg) translateX(150px) scale(1.6); opacity: 0; }
+}
+
+/* --- 特效 3：【龍拳連環烈彈 (Dragon Ki Blast Barrage)】--- */
+@keyframes kiBlastExplosion {
+  0% {
+    transform: scale(0.1);
+    opacity: 1;
+    filter: brightness(3.5);
+  }
+  40% {
+    transform: scale(1.4);
+    opacity: 1;
+    box-shadow: 0 0 45px #ffeaa7, 0 0 85px #fdcb6e, inset 0 0 40px #e17055;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+    filter: brightness(1);
+  }
+}
+
+.fx-kiblast-container {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.fx-ki-ball {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 20%, #fdcb6e 60%, #e17055 90%);
+  animation: kiBlastExplosion 0.65s ease-out forwards;
+}
+
+.fx-shockwave-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  border-radius: 50%;
+  border: 6px solid #ffeaa7;
+  animation: ringExpand 0.7s ease-out forwards;
+}
+
+@keyframes ringExpand {
+  0% { transform: scale(0.2); opacity: 1; border-width: 10px; }
+  100% { transform: scale(2.2); opacity: 0; border-width: 2px; }
+}
+
+/* --- 特效 4：【天降紫極神雷 (Heavenly Violet Lightning)】--- */
+@keyframes thunderPillar {
+  0% {
+    transform: scaleY(0.05);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  15% {
+    transform: scaleY(1);
+    opacity: 1;
+    filter: brightness(4) drop-shadow(0 0 45px #a29bfe);
+  }
+  45% {
+    transform: scaleY(1.05) scaleX(1.5);
+    filter: brightness(3) drop-shadow(0 0 65px #6c5ce7);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) scaleX(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes groundLightningFlash {
+  0% { transform: scale(0.2); opacity: 1; }
+  30% { transform: scale(1.5); opacity: 1; filter: brightness(3); }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.fx-lightning-container {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  top: -40px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fx-lightning-bolt {
+  width: 35px;
+  height: 250px;
+  background: linear-gradient(180deg, #fff 0%, #a29bfe 40%, #6c5ce7 80%, #fff 100%);
+  clip-path: polygon(45% 0%, 55% 0%, 65% 35%, 40% 40%, 60% 70%, 35% 75%, 50% 100%, 40% 100%, 25% 72%, 48% 68%, 28% 38%, 45% 32%);
+  animation: thunderPillar 0.45s ease-out forwards;
+}
+
+.fx-lightning-ground {
+  position: absolute;
+  bottom: 10px;
+  width: 120px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #fff 0%, #a29bfe 50%, transparent 80%);
+  animation: groundLightningFlash 0.48s ease-out forwards;
+}
+
+/* ==============================================
+   活潑可愛童趣風格專屬微動畫 (Cute & Playful Animations)
+============================================== */
+@keyframes cuteTitleFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(-0.6deg); }
+  50% { transform: translateY(-5px) rotate(0.5deg); }
+  75% { transform: translateY(-2px) rotate(-0.3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes cuteJellyPulse {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.05, 0.95); }
+  65% { transform: scale(0.98, 1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes cuteBadgeBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes cuteShinePass {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  20%, 100% { transform: translateX(220%) skewX(-20deg); }
+}
+
+/* ==============================================
+   五關完全通關大動畫 (Grand Ending Cutscene Animations)
+============================================== */
+@keyframes heroCutsceneSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.85);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.04);
+  }
+  80% {
+    transform: translateY(3px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes haloPulseGold {
+  0% {
+    box-shadow: 0 0 10px rgba(253, 224, 71, 0.4), 0 0 20px rgba(245, 158, 11, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(253, 224, 71, 0.85), 0 0 40px rgba(245, 158, 11, 0.5);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(253, 224, 71, 0.4), 0 0 20px rgba(245, 158, 11, 0.2);
+    transform: scale(1);
+  }
+}
+
+@keyframes grandTitleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(253, 224, 71, 0.7));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(245, 158, 11, 0.95)) drop-shadow(0 0 15px rgba(236, 72, 153, 0.6));
+    transform: scale(1.02);
+  }
+}
+
+@keyframes badgeRotateShine {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+.hero-entry-1 { animation: heroCutsceneSlideUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s both; }
+.hero-entry-2 { animation: heroCutsceneSlideUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both; }
+.hero-entry-3 { animation: heroCutsceneSlideUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s both; }
+.hero-entry-4 { animation: heroCutsceneSlideUp 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s both; }
+
+
