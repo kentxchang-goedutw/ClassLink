@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>教師多檔上傳工具</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* 全新風格：淡藍及華麗外觀 */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #B3E5FC, #E1F5FE);
+      font-family: 'Arial', sans-serif;
+      color: #0D47A1;
+    }
+
+    /* 頁首 */
+    header {
+      background: linear-gradient(45deg, #81D4FA, #B3E5FC);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 32px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 上傳表單容器 */
+    .upload-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 表單標籤與輸入元素 */
+    .upload-container label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .upload-container select,
+    .upload-container input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #B3E5FC;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    /* 上傳按鈕 */
+    .upload-container button {
+      background: linear-gradient(45deg, #64B5F6, #81D4FA);
+      border: none;
+      color: #fff;
+      padding: 15px 20px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .upload-container button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 上傳結果訊息 */
+    #uploadResult {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* 簡單的 row、col 版面 */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .col {
+      flex: 1;
+    }
+
+    /* 資料夾選擇器 */
+    .folder-picker {
+      border: 2px solid #B3E5FC;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .folder-breadcrumb {
+      background: #E1F5FE;
+      padding: 10px 12px;
+      font-size: 14px;
+      line-height: 1.8;
+      border-bottom: 1px solid #B3E5FC;
+    }
+
+    .folder-breadcrumb .crumb {
+      cursor: pointer;
+      color: #0277BD;
+      font-weight: bold;
+    }
+
+    .folder-breadcrumb .crumb:hover {
+      text-decoration: underline;
+    }
+
+    .folder-list {
+      max-height: 220px;
+      overflow-y: auto;
+      background: #fff;
+    }
+
+    .folder-item {
+      padding: 10px 14px;
+      font-size: 15px;
+      cursor: pointer;
+      border-bottom: 1px solid #F0F8FF;
+    }
+
+    .folder-item:hover {
+      background: #E1F5FE;
+    }
+
+    .folder-empty {
+      padding: 14px;
+      font-size: 14px;
+      color: #90A4AE;
+      text-align: center;
+    }
+
+    .folder-picker-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      background: #F5FBFF;
+      border-top: 1px solid #B3E5FC;
+    }
+
+    #selectedFolderDisplay {
+      font-size: 14px;
+      color: #01579B;
+      word-break: break-all;
+    }
+
+    #btnSelectFolder {
+      background: linear-gradient(45deg, #4FC3F7, #29B6F6);
+      border: none;
+      color: #fff;
+      padding: 8px 14px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    #btnSelectFolder:hover {
+      opacity: 0.9;
+    }
+
+    /* 右下角製作資訊 */
+    .footer {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 15px;
+      border: 2px solid #81D4FA;
+      border-radius: 15px;
+      font-size: 16px;
+      color: #0D47A1;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    教師多檔上傳工具
+  </header>
+
+  <div class="upload-container">
+    <form id="multiUploadForm">
+      <label>上傳目的地資料夾（點選子資料夾可進入，可多層深入）：</label>
+      <div class="folder-picker">
+        <div class="folder-breadcrumb" id="folderBreadcrumb"></div>
+        <div class="folder-list" id="folderList">載入中...</div>
+        <div class="folder-picker-footer">
+          <span id="selectedFolderDisplay">已選擇：www 根目錄</span>
+          <button type="button" id="btnSelectFolder">選用目前瀏覽的資料夾</button>
+        </div>
+      </div>
+
+      <label for="files">選擇檔案：</label>
+      <input type="file" id="files" name="files" multiple required />
+      <button type="button" id="uploadButton">上傳檔案</button>
+    </form>
+    <div id="uploadResult"></div>
+  </div>
+
+  <div class="footer">
+    Made by 阿剛老師
+  </div>
+
+  <script>
+    // ---- 資料夾瀏覽／選擇 ----
+    let currentBrowsePath = "";   // 目前瀏覽中的資料夾（相對於 www）
+    let selectedFolder = "";      // 已確認選用、要上傳到的資料夾（相對於 www）
+
+    async function fetchFolderListing(path) {
+      const res = await fetch('/api/list?path=' + encodeURIComponent(path) + '&t=' + new Date().getTime());
+      if (!res.ok) throw new Error('無法取得資料夾清單（狀態碼 ' + res.status + '）');
+      return res.json();
+    }
+
+    function renderBreadcrumb(path) {
+      const el = document.getElementById('folderBreadcrumb');
+      const parts = path ? path.split('/').filter(Boolean) : [];
+      let acc = '';
+      let html = '<span class="crumb" data-path="">📁 www 根目錄</span>';
+      parts.forEach(p => {
+        acc = acc ? (acc + '/' + p) : p;
+        const safe = p.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        html += ' / <span class="crumb" data-path="' + acc.replace(/"/g, '&quot;') + '">' + safe + '</span>';
+      });
+      el.innerHTML = html;
+      el.querySelectorAll('.crumb').forEach(node => {
+        node.addEventListener('click', () => browseFolder(node.getAttribute('data-path')));
+      });
+    }
+
+    function updateSelectedFolderDisplay() {
+      const disp = document.getElementById('selectedFolderDisplay');
+      disp.textContent = selectedFolder ? ('已選擇：/' + selectedFolder) : '已選擇：www 根目錄';
+    }
+
+    async function browseFolder(path) {
+      currentBrowsePath = path || '';
+      renderBreadcrumb(currentBrowsePath);
+      const listEl = document.getElementById('folderList');
+      listEl.innerHTML = '<div class="folder-empty">載入中...</div>';
+      try {
+        const items = await fetchFolderListing(currentBrowsePath);
+        const dirs = items.filter(i => i.isDir).sort((a, b) => a.name.localeCompare(b.name, 'zh-Hant'));
+        if (dirs.length === 0) {
+          listEl.innerHTML = '<div class="folder-empty">（此資料夾內沒有子資料夾）</div>';
+          return;
+        }
+        listEl.innerHTML = '';
+        dirs.forEach(d => {
+          const item = document.createElement('div');
+          item.className = 'folder-item';
+          item.textContent = '📁 ' + d.name;
+          item.addEventListener('click', () => browseFolder(d.path));
+          listEl.appendChild(item);
+        });
+      } catch (e) {
+        listEl.innerHTML = '<div class="folder-empty">載入失敗：' + e.message + '</div>';
+      }
+    }
+
+    document.getElementById('btnSelectFolder').addEventListener('click', () => {
+      selectedFolder = currentBrowsePath;
+      updateSelectedFolderDisplay();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      browseFolder('');
+      updateSelectedFolderDisplay();
+    });
+
+    // 當按下「上傳檔案」按鈕時，依照所選資料夾及多檔案進行上傳
+    document.getElementById("uploadButton").addEventListener("click", function() {
+      const filesInput = document.getElementById("files");
+      const files = filesInput.files;
+      const uploadResult = document.getElementById("uploadResult");
+
+      if (files.length === 0) {
+        alert("請選擇至少一個檔案");
+        return;
+      }
+
+      uploadResult.innerHTML = "檔案上傳中，請稍候...";
+
+      let uploadCount = 0;
+      let errorOccurred = false;
+
+      // 逐一上傳每個檔案（參考 file_upload.js 上傳方式）
+      for (let i = 0; i < files.length; i++) {
+        let formData = new FormData();
+        // 將目的地資料夾欄位加入 FormData，伺服器端會依此存放到 www 內對應的子資料夾
+        formData.set("folder", selectedFolder);
+
+        let file = files[i];
+        let fileName = file.name;
+        // 如果檔名沒有副檔名，可預設加上 .png（本範例保留原始檔名）
+        if (fileName.indexOf('.') === -1) {
+          fileName += ".png";
+        }
+        formData.set("name", fileName);
+        // 刪除原有 file 欄位後，用新的 File 物件附加檔案（保留原始檔名）
+        formData.delete("file");
+        const renamedFile = new File([file], fileName, { type: file.type });
+        formData.append("file", renamedFile);
+
+        fetch('/upload', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (!response.ok) {
+            return response.text().then(t => { throw new Error(t || ("伺服器回應錯誤，狀態碼：" + response.status)); });
+          }
+          return response.text();
+        })
+        .then(text => {
+          console.log("檔案 " + fileName + " 上傳成功：", text);
+          uploadCount++;
+          if (uploadCount === files.length && !errorOccurred) {
+            uploadResult.innerHTML = "全部檔案上傳完成。";
+            filesInput.value = "";
+          }
+        })
+        .catch(error => {
+          console.error("檔案 " + fileName + " 上傳失敗：", error);
+          errorOccurred = true;
+          uploadResult.innerHTML = "上傳時發生錯誤：" + error.message;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
